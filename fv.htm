@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>JavaScript Form Validation: Valid Zip Code   </title>
+  <style>body{font-family:Verdana;}</style>
+</head>
+  
+<body>
+<script>
+  function check(vals){
+    var name_regex=/^([A-Z][a-z]{1,15})$/;
+    var email_regex=/^(([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5}){1,25})+([;.](([a-zA-Z0-9_\-\.]+)@{[a-zA-Z0-9_\-\.]+0\.([a-zA-Z]{2,5}){1,25})+)*$/;
+    var pwd_regex=/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{6,16}$/;
+    var contact_regex=/^\d{10}$/;
+    if(name_regex.test(vals.yourfname.value)==false)
+    {
+      alert("Please Enter Correct First Name");
+    return false; 
+    }
+    else if(name_regex.test(vals.yourlname.value)==false)
+    {
+      alert("Please Enter Correct Last Name");
+      return false;
+    }
+    else if(email_regex.test(vals.youremail.value)==false)
+    {
+      alert("Please Enter Correct Email");
+      return false;
+    }
+    else if(pwd_regex.test(vals.yourpwd.value)==false)
+    {
+      alert("Please Enter Strong Password");
+      return false;
+    }
+    else if(contact_regex.test(vals.yourcontact.value)==false)
+    {
+      alert("Please Enter Correct Contact");
+      return false;
+    }
+    else
+    {
+      alert("Perfect! Thank You!");
+      return true;
+    }
+    
+  }
+</script>
+  <form name="validate" onSubmit="return check(this)" >
+          
+ 
+<p> First Name : 
+   <input type="text" name="yourfname" required /> </p>        
+<p> Last Name : 
+   <input type="text" name="yourlname" required /> </p>
+<p> Email : 
+   <input type="text" name="youremail" required /> </p>
+<p> Password : 
+   <input type="password" name="yourpwd" required /> </p>   
+<p> Contact : 
+   <input type="text" name="yourcontact" required /> </p>
+   <input type="submit" value="Submit" required />
+          <br>
+    <input type="reset">
+          
+
+  </form>         
+</body>
+</html>
